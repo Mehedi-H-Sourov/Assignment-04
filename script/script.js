@@ -193,10 +193,10 @@ mainContainer.addEventListener('click', function (event) {
             rejectionList.push(cardInfo)
         }
 
-        // removing the plant from thriving list
+
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
 
-        // console.log(thrivingList);
+
 
         // after remove rerender the html
         if (currentStatus == "btn-rejected") {
@@ -204,6 +204,30 @@ mainContainer.addEventListener('click', function (event) {
         }
         calculateCount()
 
+    }
+
+    else if (event.target.closest('.btn-delete')) {
+
+        const card = event.target.closest('.content');
+
+        if (!card) return;
+
+        const companyName = card.querySelector('.company').innerText;
+
+        // Remove from DOM
+        card.remove();
+
+        // Remove from interview list
+        interviewList = interviewList.filter(
+            item => item.companyName !== companyName
+        );
+
+        // Remove from rejection list
+        rejectionList = rejectionList.filter(
+            item => item.companyName !== companyName
+        );
+
+        calculateCount();
     }
 })
 
