@@ -21,15 +21,15 @@
         <div class="grid grid-cols-3  gap-5 my-4">
             <div class="bg-white rounded shadow p-4">
                 <h5>Total</h5>
-                <h2 class="font-bold text-lg">8</h2>
+                <h2 id="total-interview" class="font-bold text-lg">0</h2>
             </div>
             <div class="bg-white rounded shadow p-4">
                 <h5>Interview</h5>
-                <h2 class="font-bold text-lg text-green-500">0</h2>
+                <h2 id="interview-attended" class="font-bold text-lg text-green-500">0</h2>
             </div>
             <div class="bg-white rounded shadow p-4">
                 <h5>Rejected</h5>
-                <h2 class="font-bold text-lg text-red-600">0</h2>
+                <h2 id="rejected-interview" class="font-bold text-lg text-red-600">0</h2>
             </div>
 
 
@@ -39,19 +39,24 @@
 
 
     <main class="w-[80%] mx-auto">
-        <section>
+        <section class="title and header">
             <div class="flex justify-between">
                 <h2 class="text-2xl font-bold">Available Jobs</h2>
                 <p class="text-gray-500">8 jobs</p>
             </div>
-        </section>
-        <div class="gap-10 my-4">
-            <button class="bg-blue-600 px-8 py-1 rounded text-white">All</button>
-            <button class="bg-gray-200 px-4 py-1 rounded text-gray-600">Interview</button>
-            <button class="bg-gray-200 px-4 py-1 rounded text-gray-600">Rejected</button>
-        </div>
 
-        <section class="cards">
+            <div class="gap-10 my-4">
+                <button onclick="togglestyle('btn-all')" id='btn-all'
+                    class="bg-blue-600 px-8 py-1 rounded text-white">All</button>
+                <button onclick="togglestyle('btn-interview')" id="btn-interview"
+                    class="bg-gray-200 px-4 py-1 rounded text-gray-600">Interview</button>
+                <button onclick="togglestyle('btn-rejected')" id="btn-rejected"
+                    class="bg-gray-200 px-4 py-1 rounded text-gray-600">Rejected</button>
+            </div>
+        </section>
+
+
+        <section id="all-cards" class="space-y-8">
             <!-- card 1 -->
             <div class="content shadow p-8 flex justify-between">
                 <div>
@@ -248,11 +253,9 @@
 
         </section>
 
-
-
     </main>
 
-    <footer></footer>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>
