@@ -6,19 +6,19 @@
 
 ### Answer:
 
-- **`getElementById()`**
-  - Finds a single element by its unique `id`.
+- getElementById()
+  - Finds a single element by its unique id.
   - Returns one element.
 
-- **`getElementsByClassName()`**
+- getElementsByClassName()
   - Finds all elements with a specific class name.
   - Returns an HTMLCollection (live collection).
 
-- **`querySelector()`**
+- querySelector()
   - Uses CSS selectors.
   - Returns the first matching element only.
 
-- **`querySelectorAll()`**
+- querySelectorAll()
   - Uses CSS selectors.
   - Returns **all matching elements as a NodeList.
 
@@ -124,7 +124,7 @@ It works because of Event Bubbling.
 
 ## 5. What is the difference between preventDefault() and stopPropagation()?
 
-### Explanation:
+### Answer:
 
 - preventDefault()
   - Stops the browser’s default behavior.
@@ -133,11 +133,13 @@ It works because of Event Bubbling.
 
 - stopPropagation()
   - Stops the event from bubbling up to parent elements.
-  - Default browser behavior still happens.
+  - Default  behavior still happens.
 
 ---
 
 ### Key Differences:
+
+**The Key difference is that preventDefault() stops default browser action whereas stopPropagation() stops event flow in the DOM.**
 
 
 
