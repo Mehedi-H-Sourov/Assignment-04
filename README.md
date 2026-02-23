@@ -12,7 +12,7 @@
 
 - getElementsByClassName()
   - Finds all elements with a specific class name.
-  - Returns an HTMLCollection (live collection).
+  - Returns an HTMLCollection .
 
 - querySelector()
   - Uses CSS selectors.
@@ -20,19 +20,18 @@
 
 - querySelectorAll()
   - Uses CSS selectors.
-  - Returns **all matching elements as a NodeList.
+  - Returns all matching elements as a NodeList.
 
 ---
 
 ## 2. How do you create and insert a new element into the DOM?
 
-### Steps:
+### Answer:
 
+### Steps of creating and inserting a new element into DOM:
 ### Step 1: Create an element
 
-
 const para = document.createElement("div");
-
 
 ### Step 2: Set content and attributes
 
@@ -43,8 +42,8 @@ para.style.color = "green";
 
 ### Step 3: Insert into the page
 
-const container = document.getElementById("container");
-container.appendChild(para);
+- const container = document.getElementById("container");
+- container.appendChild(para);
 
 
 ---
@@ -65,8 +64,7 @@ It is generally better to use createElement() + textContent.
 
 ### Answer:
 
-When an event occurs on an element (like a click), it doesn’t stop there.  
-The event travels upward through its parent elements until it reaches the document. This upward movement is called Event Bubbling.We can think of it like a bubble rising from bottom to top.
+When an event occurs on an element (like a click), it doesn’t stop there. The event travels upward through its parent elements until it reaches the document. This upward movement is called Event Bubbling.We can think of it like a bubble rising from bottom to top.
 
 ### Example:
 
@@ -84,20 +82,17 @@ button → parent → grandparent → document
 
 ### Event Flow Phases:
 
-1. Capturing Phase* 
-   Event travels DOWN from document to the target element.
+1. Capturing Phase: Event travels DOWN from document to the target element.
 
-2. Target Phase  
-   Event reaches the clicked element.
+2. Target Phase:  Event reaches the clicked element.
 
-3. Bubbling Phase 
-   Event travels UP from the target element back to document.
+3. Bubbling Phase: Event travels UP from the target element back to document.
 
 ---
 
 ### Why Event Bubbling is Useful:
 
-- You don’t need separate listeners for every child element.
+- We don’t need separate listeners for every child element.
 - Improves performance.
 - Makes code cleaner and more dynamic.
 
@@ -107,9 +102,7 @@ button → parent → grandparent → document
 
 ### Answer:
 
-Event Delegation is a technique where instead of adding event listeners to multiple child elements, you add one listener to the parent and detect which child was clicked using event.target.
-
-It works because of Event Bubbling.
+Event Delegation is a technique where instead of adding event listeners to multiple child elements, we add one listener to the parent and detect which child was clicked using event.target.It works because of Event Bubbling.
 
 ---
 
