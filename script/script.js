@@ -32,7 +32,7 @@ calculateCount();
 
 
 
-// // changing their background and colors while toggling amongst buttons
+// changing their background and colors while toggling amongst buttons
 
 let btnAll = document.getElementById('btn-all');
 let btnInterview = document.getElementById('btn-interview');
