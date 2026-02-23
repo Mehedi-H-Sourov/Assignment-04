@@ -9,11 +9,15 @@ let rejectedCount = document.getElementById('rejected-interview-count');
 
 let allCards = document.getElementById('all-cards');
 let filteredSection = document.getElementById('filtered-section');
+let noAvailableJobs = document.getElementById('no-available-jobs');
+
+let countJobs = document.getElementById('job-count');
 
 function calculateCount() {
     totalCount.innerText = allCards.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectionList.length;
+    countJobs.innerText = allCards.children.length;
 }
 calculateCount();
 
@@ -36,14 +40,10 @@ function togglestyle(id) {
     selected.classList.remove('bg-gray-200', 'text-gray-600');
     selected.classList.add('bg-blue-600', 'text-white');
 
-
-
     // show and hide particular section on click 
 
     currentStatus = id;
 
-    let allCards = document.getElementById('all-cards');
-    let filteredSection = document.getElementById('filtered-section');
 
     if (id == 'btn-all') {
         allCards.classList.remove('hidden');
@@ -65,10 +65,21 @@ function togglestyle(id) {
     }
 
 }
+// toggling ends here
 
 // Rendering 
 function renderInterview() {
     filteredSection.innerHTML = '';
+
+    if (interviewList.length === 0) {
+        filteredSection.innerHTML = `
+            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
+    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
+    <h2 class="text-2xl font-bold">No jobs available</h2>
+    <p class="text-gray-500">Check back soon for new job opportunities</p>
+</div>
+            `
+    }
 
     for (let interview of interviewList) {
         console.log(interview);
@@ -82,14 +93,14 @@ function renderInterview() {
                     <br>
                     <p class="salary text-gray-500">${interview.salary}</p>
                     <br>
-                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-600 font-bold">${interview.status}</button>
+                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-green-400">${interview.status}</button>
                     <br>
                     <br>
                     <p class="notes">${interview.notes}</p>
                     <br>
                     <button
-                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
-                    <button class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
+                    <button class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>`
         filteredSection.appendChild(div);
@@ -99,6 +110,18 @@ function renderInterview() {
 }
 function renderRejection() {
     filteredSection.innerHTML = '';
+
+    if (interviewList.length === 0) {
+        let para = document.createElement('div')
+        para.innerHTML = `
+            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
+    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
+    <h2 class="text-2xl font-bold">No jobs available</h2>
+    <p class="text-gray-500">Check back soon for new job opportunities</p>
+    </div>
+            `
+        filteredSection.appendChild(para);
+    }
 
     for (let rejection of rejectionList) {
         console.log(rejection);
@@ -112,21 +135,24 @@ function renderRejection() {
                     <br>
                     <p class="salary text-gray-500">${rejection.salary}</p>
                     <br>
-                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-600 font-bold">${rejection.status}</button>
+                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-red-400">${rejection.status}</button>
                     <br>
                     <br>
                     <p class="notes">${rejection.notes}</p>
                     <br>
                     <button
-                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
-                    <button class=" rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
+                    <button class=" rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>`
         filteredSection.appendChild(div);
     }
 }
 
-// Event delegation
+
+
+//-----------------------------------------------Event delegation ----------------------------------------/
+
 const mainContainer = document.querySelector('main');
 
 mainContainer.addEventListener('click', function (event) {
@@ -149,24 +175,25 @@ mainContainer.addEventListener('click', function (event) {
             status: 'INTERVIEWED',
             notes
         }
+
         const jobExist = interviewList.find(item => item.companyName == cardInfo.companyName)
 
         if (!jobExist) {
             interviewList.push(cardInfo)
         }
 
-        // step 2 finish
-        // removing the plant from struggling list
+
         rejectionList = rejectionList.filter(item => item.companyName != cardInfo.companyName)
 
         // after remove rerender the html
         if (currentStatus == 'btn-interview') {
-            renderInterview()
+            renderInterview();
+            countJobs.innerText = interviewList.length;
         }
 
         calculateCount()
-
     }
+
     else if (event.target.classList.contains('rej-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         // const parentNode = event.target.closest('.content');
@@ -198,7 +225,7 @@ mainContainer.addEventListener('click', function (event) {
 
 
 
-        // after remove rerender the html
+        // after removing rerendering the html
         if (currentStatus == "btn-rejected") {
             renderRejection();
         }

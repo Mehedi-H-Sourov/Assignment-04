@@ -15,24 +15,30 @@
 </head>
 
 <body>
-    <!-- Count of all the jobs-interview-rejected on top -->
+    <!-- Count of all the jobs---interview-rejected on top -->
     <header class="w-[80%] mx-auto">
+
         <h1 class="font-bold text-5xl my-10">Job Application Tracker</h1>
         <div class="grid grid-cols-3  gap-5 my-4">
+
             <div class="bg-white rounded shadow p-4">
                 <h5>Total</h5>
                 <h2 id="total-interview-count" class="font-bold text-lg">0</h2>
             </div>
+
             <div class="bg-white rounded shadow p-4">
                 <h5>Interview</h5>
                 <h2 id="interview-attended-count" class="font-bold text-lg text-green-500">0</h2>
             </div>
+
             <div class="bg-white rounded shadow p-4">
                 <h5>Rejected</h5>
                 <h2 id="rejected-interview-count" class="font-bold text-lg text-red-600">0</h2>
             </div>
+
         </div>
         <hr class="border border-gray-200 my-8">
+
     </header>
 
 
@@ -41,7 +47,7 @@
 
         <div class="flex justify-between">
             <h2 class="text-2xl font-bold">Available Jobs</h2>
-            <p class="text-gray-500">8 jobs</p>
+            <p class="text-gray-500"><span id="job-count">0</span> jobs</p>
         </div>
         <!-- Filtering Buttons -->
         <div class="gap-10 my-4">
@@ -52,6 +58,8 @@
             <button id="btn-rejected" onclick="togglestyle('btn-rejected')"
                 class="bg-gray-200 px-4 py-1 rounded text-gray-600">Rejected</button>
         </div>
+
+        <!-- initial no-available-jobs section -->
 
 
         <!-- filtered section -->
@@ -78,13 +86,14 @@
                         users worldwide.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400 cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -104,13 +113,14 @@
                         modern web design trends.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -131,13 +141,14 @@
                     </p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -157,13 +168,14 @@
                         practices and cloud infrastructure.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete  text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete  text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -183,13 +195,14 @@
                         and frontend development expertise required.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -209,13 +222,14 @@
                         compensation, health insurance, and professional development opportunities.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -235,13 +249,14 @@
                         required. Great benefits and equity package included.</p>
                     <br>
                     <button
-                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
@@ -261,13 +276,14 @@
                         React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                     <br>
                     <button
-                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-500 font-bold">INTERVIEW</button>
+                        class="int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
                     <button
-                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-500 font-bold">REJECTED</button>
+                        class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
 
                 </div>
                 <div>
-                    <button class="btn-delete text-gray-400"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="btn-delete text-gray-400 cursor-pointer"><i
+                            class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
 
