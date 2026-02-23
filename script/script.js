@@ -14,10 +14,19 @@ let noAvailableJobs = document.getElementById('no-available-jobs');
 let countJobs = document.getElementById('job-count');
 
 function calculateCount() {
-    totalCount.innerText = allCards.children.length;
+    let totalJobs = allCards.children.length;
+
+    totalCount.innerText = totalJobs;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectionList.length;
-    countJobs.innerText = allCards.children.length;
+    countJobs.innerText = totalJobs;
+
+    if (currentStatus == 'btn-interview') {
+        countJobs.innerText = `${interviewList.length} of ${totalJobs}`
+    }
+    else if (currentStatus == 'btn-rejected') {
+        countJobs.innerText = `${rejectionList.length} of ${totalJobs}`
+    }
 }
 calculateCount();
 
@@ -65,6 +74,7 @@ function togglestyle(id) {
         renderRejection();
 
     }
+    calculateCount();
 
 }
 
@@ -103,7 +113,7 @@ mainContainer.addEventListener('click', function (event) {
         }
 
         rejectionList = rejectionList.filter(item => item.companyName != cardInfo.companyName)
-        l
+
         if (currentStatus == 'btn-interview') {
             renderInterview();
             countJobs.innerText = interviewList.length;
