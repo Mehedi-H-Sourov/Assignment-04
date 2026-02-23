@@ -203,7 +203,7 @@ function renderInterview() {
             console.log(interview);
 
             let div = document.createElement('div');
-            div.className = 'content shadow p-8 flex justify-between mb-10';
+            div.className = 'content shadow p-8 flex justify-between mb-8';
             div.innerHTML = `
         <div >
                     <h2 class="company font-bold text-2xl ">${interview.companyName}</h2>
@@ -248,7 +248,7 @@ function renderRejection() {
             console.log(rejection);
 
             let div = document.createElement('div');
-            div.className = 'content shadow p-8 flex justify-between';
+            div.className = 'content shadow p-8 flex justify-between mb-8';
             div.innerHTML = `
         <div >
                     <h2 class="company font-bold text-2xl ">${rejection.companyName}</h2>
