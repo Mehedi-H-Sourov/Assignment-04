@@ -35,9 +35,10 @@ const para = document.createElement("div");
 
 ### Step 2: Set content and attributes
 
-para.textContent = "I am a new card!";
+```para.textContent = "I am a new card!";
 para.className = "content px-4 py-4 flex justify-between";
 para.style.color = "green";
+```
 
 
 ### Step 3: Insert into the page
@@ -68,11 +69,12 @@ When an event occurs on an element (like a click), it doesn’t stop there. The 
 
 ### Example:
 
-<div id="grandparent">
+```<div id="grandparent">
   <div id="parent">
     <button id="child">Click!</button>
   </div>
 </div>
+```
 
 If we click the button, the event flows like this:
 
