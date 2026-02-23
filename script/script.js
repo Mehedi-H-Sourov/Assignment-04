@@ -51,7 +51,7 @@ function togglestyle(id) {
     selected.classList.remove('bg-gray-200', 'text-gray-600');
     selected.classList.add('bg-blue-600', 'text-white');
 
-    // show and hide particular section on clicking the ALL/Interview/Rejected tabs ---------
+    // show and hide particular section on clicking the ALL/Interview/Rejected tabs 
 
     currentStatus = id;
 
@@ -79,13 +79,13 @@ function togglestyle(id) {
 }
 
 
-//-----------------------------------------------Event delegation ----------------------------------------/
+//Event delegation
 
 const mainContainer = document.querySelector('main');
 
 mainContainer.addEventListener('click', function (event) {
 
-    // ---- things happens after clicking interview button ----------------------//
+    //things happens after clicking interview button
     if (event.target.classList.contains('int-btn')) {
         // const parentNode = event.target.parentNode.parentNode;
         const parentNode = event.target.parentNode.parentNode;
@@ -121,7 +121,7 @@ mainContainer.addEventListener('click', function (event) {
 
         calculateCount()
     }
-    //  ------------------ things happens after clicking rejected button ----------------
+    // things happens after clicking rejected button
     else if (event.target.classList.contains('rej-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         // const parentNode = event.target.closest('.content');
@@ -183,7 +183,8 @@ mainContainer.addEventListener('click', function (event) {
 })
 
 
-// -------------------------Rendering ---------------------------------------------
+// Rendering 
+
 function renderInterview() {
     filteredSection.innerHTML = '';
 
