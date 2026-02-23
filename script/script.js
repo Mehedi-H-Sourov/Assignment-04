@@ -21,7 +21,9 @@ function calculateCount() {
 }
 calculateCount();
 
-// // toggling amongst buttons
+
+
+// // changing their background and colors while toggling amongst buttons
 
 let btnAll = document.getElementById('btn-all');
 let btnInterview = document.getElementById('btn-interview');
@@ -40,7 +42,7 @@ function togglestyle(id) {
     selected.classList.remove('bg-gray-200', 'text-gray-600');
     selected.classList.add('bg-blue-600', 'text-white');
 
-    // show and hide particular section on click 
+    // show and hide particular section on clicking the ALL/Interview/Rejected tabs ---------
 
     currentStatus = id;
 
@@ -65,90 +67,6 @@ function togglestyle(id) {
     }
 
 }
-// toggling ends here
-
-// Rendering 
-function renderInterview() {
-    filteredSection.innerHTML = '';
-
-    if (interviewList.length === 0) {
-        filteredSection.innerHTML = `
-            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
-    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
-    <h2 class="text-2xl font-bold">No jobs available</h2>
-    <p class="text-gray-500">Check back soon for new job opportunities</p>
-</div>
-            `
-    }
-
-    for (let interview of interviewList) {
-        console.log(interview);
-
-        let div = document.createElement('div');
-        div.className = 'content shadow p-8 flex justify-between';
-        div.innerHTML = `
-        <div >
-                    <h2 class="company font-bold text-2xl ">${interview.companyName}</h2>
-                    <p class="position text-gray-500">${interview.position}</p>
-                    <br>
-                    <p class="salary text-gray-500">${interview.salary}</p>
-                    <br>
-                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-green-400">${interview.status}</button>
-                    <br>
-                    <br>
-                    <p class="notes">${interview.notes}</p>
-                    <br>
-                    <button
-                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
-                    <button class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
-
-                </div>`
-        filteredSection.appendChild(div);
-
-    }
-
-}
-function renderRejection() {
-    filteredSection.innerHTML = '';
-
-    if (interviewList.length === 0) {
-        let para = document.createElement('div')
-        para.innerHTML = `
-            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
-    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
-    <h2 class="text-2xl font-bold">No jobs available</h2>
-    <p class="text-gray-500">Check back soon for new job opportunities</p>
-    </div>
-            `
-        filteredSection.appendChild(para);
-    }
-
-    for (let rejection of rejectionList) {
-        console.log(rejection);
-
-        let div = document.createElement('div');
-        div.className = 'content shadow p-8 flex justify-between';
-        div.innerHTML = `
-        <div >
-                    <h2 class="company font-bold text-2xl ">${rejection.companyName}</h2>
-                    <p class="position text-gray-500">${rejection.position}</p>
-                    <br>
-                    <p class="salary text-gray-500">${rejection.salary}</p>
-                    <br>
-                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-red-400">${rejection.status}</button>
-                    <br>
-                    <br>
-                    <p class="notes">${rejection.notes}</p>
-                    <br>
-                    <button
-                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
-                    <button class=" rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
-
-                </div>`
-        filteredSection.appendChild(div);
-    }
-}
-
 
 
 //-----------------------------------------------Event delegation ----------------------------------------/
@@ -156,6 +74,8 @@ function renderRejection() {
 const mainContainer = document.querySelector('main');
 
 mainContainer.addEventListener('click', function (event) {
+
+    // ---- things happens after clicking interview button ----------------------//
     if (event.target.classList.contains('int-btn')) {
         // const parentNode = event.target.parentNode.parentNode;
         const parentNode = event.target.parentNode.parentNode;
@@ -182,10 +102,8 @@ mainContainer.addEventListener('click', function (event) {
             interviewList.push(cardInfo)
         }
 
-
         rejectionList = rejectionList.filter(item => item.companyName != cardInfo.companyName)
-
-        // after remove rerender the html
+        l
         if (currentStatus == 'btn-interview') {
             renderInterview();
             countJobs.innerText = interviewList.length;
@@ -193,7 +111,7 @@ mainContainer.addEventListener('click', function (event) {
 
         calculateCount()
     }
-
+    //  ------------------ things happens after clicking rejected button ----------------
     else if (event.target.classList.contains('rej-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         // const parentNode = event.target.closest('.content');
@@ -220,12 +138,8 @@ mainContainer.addEventListener('click', function (event) {
             rejectionList.push(cardInfo)
         }
 
-
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
 
-
-
-        // after removing rerendering the html
         if (currentStatus == "btn-rejected") {
             renderRejection();
         }
@@ -257,6 +171,97 @@ mainContainer.addEventListener('click', function (event) {
         calculateCount();
     }
 })
+
+
+// -------------------------Rendering ---------------------------------------------
+function renderInterview() {
+    filteredSection.innerHTML = '';
+
+    if (interviewList.length === 0) {
+        filteredSection.innerHTML = `
+            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
+    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
+    <h2 class="text-2xl font-bold">No jobs available</h2>
+    <p class="text-gray-500">Check back soon for new job opportunities</p>
+</div>
+            `
+    }
+
+    else {
+        for (let interview of interviewList) {
+            console.log(interview);
+
+            let div = document.createElement('div');
+            div.className = 'content shadow p-8 flex justify-between mb-10';
+            div.innerHTML = `
+        <div >
+                    <h2 class="company font-bold text-2xl ">${interview.companyName}</h2>
+                    <p class="position text-gray-500">${interview.position}</p>
+                    <br>
+                    <p class="salary text-gray-500">${interview.salary}</p>
+                    <br>
+                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-green-400">${interview.status}</button>
+                    <br>
+                    <br>
+                    <p class="notes">${interview.notes}</p>
+                    <br>
+                    <button
+                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
+                    <button class="rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
+
+                </div>`
+            filteredSection.appendChild(div);
+
+        }
+    }
+
+
+}
+function renderRejection() {
+    filteredSection.innerHTML = '';
+
+    if (rejectionList.length === 0) {
+        let para = document.createElement('div')
+        para.innerHTML = `
+            <div class="w-[100%] mx-auto text-center p-30 bg-white shadow">
+    <img class='mx-auto' src="./assets/jobs.png" alt="no-jobs-available">
+    <h2 class="text-2xl font-bold">No jobs available</h2>
+    <p class="text-gray-500">Check back soon for new job opportunities</p>
+    </div>
+            `
+        filteredSection.appendChild(para);
+    }
+
+    else {
+        for (let rejection of rejectionList) {
+            console.log(rejection);
+
+            let div = document.createElement('div');
+            div.className = 'content shadow p-8 flex justify-between';
+            div.innerHTML = `
+        <div >
+                    <h2 class="company font-bold text-2xl ">${rejection.companyName}</h2>
+                    <p class="position text-gray-500">${rejection.position}</p>
+                    <br>
+                    <p class="salary text-gray-500">${rejection.salary}</p>
+                    <br>
+                    <button class="status bg-gray-200 px-4 py-1 rounded text-gray-800 font-bold bg-red-400">${rejection.status}</button>
+                    <br>
+                    <br>
+                    <p class="notes">${rejection.notes}</p>
+                    <br>
+                    <button
+                        class=" int-btn border border-green-600 px-6 py-2 rounded text-green-600 font-bold hover:bg-green-300">INTERVIEW</button>
+                    <button class=" rej-btn border border-red-600 px-6 py-2 rounded text-red-600 font-bold hover:bg-red-300">REJECTED</button>
+
+                </div>`
+            filteredSection.appendChild(div);
+        }
+    }
+
+
+}
+
 
 
 
