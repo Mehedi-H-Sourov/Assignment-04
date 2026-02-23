@@ -31,7 +31,7 @@
 ### Steps of creating and inserting a new element into DOM:
 ### Step 1: Create an element
 
-const para = document.createElement("div");
+`const para = document.createElement("div");`
 
 ### Step 2: Set content and attributes
 
@@ -43,8 +43,9 @@ para.style.color = "green";
 
 ### Step 3: Insert into the page
 
-- const container = document.getElementById("container");
-- container.appendChild(para);
+```const container = document.getElementById("container");
+container.appendChild(para);
+```
 
 
 ---
