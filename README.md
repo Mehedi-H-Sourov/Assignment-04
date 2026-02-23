@@ -46,8 +46,6 @@ para.style.color = "green";
 ```const container = document.getElementById("container");
 container.appendChild(para);
 ```
-
-
 ---
 
 ### Other methods to insert elements:
