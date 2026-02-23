@@ -1,10 +1,10 @@
-# 📘 Assignment 04 - QnA
+# Assignment 04 - QnA
 
 ---
 
-## 1️⃣ What is the difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`?
+## 1. What is the difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`?
 
-### ✅ Answer:
+### Answer:
 
 - **`getElementById()`**
   - Finds a single element by its unique `id`.
@@ -24,17 +24,17 @@
 
 ---
 
-## 2️⃣ How do you create and insert a new element into the DOM?
+## 2. How do you create and insert a new element into the DOM?
 
-### ✅ Steps:
+### Steps:
 
-### 🔹 Step 1: Create an element
+### Step 1: Create an element
 
 ```javascript
 const para = document.createElement("div");
 ```
 
-### 🔹 Step 2: Set content and attributes
+### Step 2: Set content and attributes
 
 ```javascript
 para.textContent = "I am a new card!";
@@ -42,7 +42,7 @@ para.className = "content px-4 py-4 flex justify-between";
 para.style.color = "green";
 ```
 
-### 🔹 Step 3: Insert into the page
+### Step 3: Insert into the page
 
 ```javascript
 const container = document.getElementById("container");
@@ -51,21 +51,21 @@ container.appendChild(para);
 
 ---
 
-### 🔹 Other methods to insert elements:
+### Other methods to insert elements:
 
 - `appendChild()` → Adds at the end of parent  
 - `prepend()` → Adds at the beginning of parent  
 - `insertBefore()` → Inserts before a specific child  
 - `insertAdjacentHTML()` → Inserts at specific positions  
 
-⚠️ Although `innerHTML` can also be used, it is less safe.  
+Although `innerHTML` can also be used, it is less safe.  
 It is generally better to use `createElement()` + `textContent`.
 
 ---
 
-## 3️⃣ What is Event Bubbling? How does it work?
+## 3. What is Event Bubbling? How does it work?
 
-### ✅ Answer:
+### Answer:
 
 When an event occurs on an element (like a click), it doesn’t stop there.  
 The event travels upward through its parent elements until it reaches the `document`.
@@ -74,7 +74,7 @@ This upward movement is called **Event Bubbling**.
 
 Think of it like a bubble rising from bottom to top.
 
-### 📌 Example:
+### Example:
 
 ```html
 <div id="grandparent">
@@ -92,7 +92,7 @@ button → parent → grandparent → document
 
 ---
 
-### 📌 Event Flow Phases:
+### Event Flow Phases:
 
 1. **Capturing Phase**  
    Event travels DOWN from `document` to the target element.
@@ -105,7 +105,7 @@ button → parent → grandparent → document
 
 ---
 
-### 💡 Why Event Bubbling is Useful:
+### Why Event Bubbling is Useful:
 
 - You don’t need separate listeners for every child element.
 - Improves performance.
@@ -113,9 +113,9 @@ button → parent → grandparent → document
 
 ---
 
-## 4️⃣ What is Event Delegation in JavaScript? Why is it useful?
+## 4. What is Event Delegation in JavaScript? Why is it useful?
 
-### ✅ Answer:
+### Answer:
 
 **Event Delegation** is a technique where instead of adding event listeners to multiple child elements, you add one listener to the parent and detect which child was clicked using `event.target`.
 
@@ -123,7 +123,7 @@ It works because of **Event Bubbling**.
 
 ---
 
-### 💡 Benefits of Event Delegation:
+### Benefits of Event Delegation:
 
 - ✔ Less code (one listener instead of many)
 - ✔ Better performance (fewer listeners)
@@ -132,9 +132,9 @@ It works because of **Event Bubbling**.
 
 ---
 
-## 5️⃣ What is the difference between `preventDefault()` and `stopPropagation()`?
+## 5. What is the difference between `preventDefault()` and `stopPropagation()`?
 
-### ✅ Explanation:
+### Explanation:
 
 - **`preventDefault()`**
   - Stops the browser’s default behavior.
@@ -147,7 +147,7 @@ It works because of **Event Bubbling**.
 
 ---
 
-### 📊 Key Differences:
+### Key Differences:
 
 | Feature              | `preventDefault()` | `stopPropagation()` |
 |----------------------|-------------------|---------------------|
@@ -155,16 +155,4 @@ It works because of **Event Bubbling**.
 | Stops bubbling       | ❌ No             | ✅ Yes              |
 | Common use           | Forms, links      | Nested click events |
 
----
 
-## ✨ Summary
-
-This assignment covers:
-
-- DOM Selection Methods  
-- DOM Manipulation  
-- Event Bubbling  
-- Event Delegation  
-- Event Control Methods  
-
----
