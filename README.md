@@ -2,7 +2,7 @@
 
 ---
 
-## 1. What is the difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`?
+## 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
 ### Answer:
 
@@ -12,15 +12,15 @@
 
 - **`getElementsByClassName()`**
   - Finds all elements with a specific class name.
-  - Returns an **HTMLCollection** (live collection).
+  - Returns an HTMLCollection (live collection).
 
 - **`querySelector()`**
   - Uses CSS selectors.
-  - Returns the **first matching element** only.
+  - Returns the first matching element only.
 
 - **`querySelectorAll()`**
   - Uses CSS selectors.
-  - Returns **all matching elements** as a **NodeList**.
+  - Returns **all matching elements as a NodeList.
 
 ---
 
@@ -30,36 +30,34 @@
 
 ### Step 1: Create an element
 
-```javascript
+
 const para = document.createElement("div");
-```
+
 
 ### Step 2: Set content and attributes
 
-```javascript
 para.textContent = "I am a new card!";
 para.className = "content px-4 py-4 flex justify-between";
 para.style.color = "green";
-```
+
 
 ### Step 3: Insert into the page
 
-```javascript
 const container = document.getElementById("container");
 container.appendChild(para);
-```
+
 
 ---
 
 ### Other methods to insert elements:
 
-- `appendChild()` → Adds at the end of parent  
-- `prepend()` → Adds at the beginning of parent  
-- `insertBefore()` → Inserts before a specific child  
-- `insertAdjacentHTML()` → Inserts at specific positions  
+- appendChild() → Adds at the end of parent  
+- prepend() → Adds at the beginning of parent  
+- insertBefore() → Inserts before a specific child  
+- insertAdjacentHTML() → Inserts at specific positions  
 
-Although `innerHTML` can also be used, it is less safe.  
-It is generally better to use `createElement()` + `textContent`.
+Although innerHTML can also be used, it is less safe.  
+It is generally better to use createElement() + textContent.
 
 ---
 
@@ -68,40 +66,32 @@ It is generally better to use `createElement()` + `textContent`.
 ### Answer:
 
 When an event occurs on an element (like a click), it doesn’t stop there.  
-The event travels upward through its parent elements until it reaches the `document`.
-
-This upward movement is called **Event Bubbling**.
-
-Think of it like a bubble rising from bottom to top.
+The event travels upward through its parent elements until it reaches the document. This upward movement is called Event Bubbling.We can think of it like a bubble rising from bottom to top.
 
 ### Example:
 
-```html
 <div id="grandparent">
   <div id="parent">
     <button id="child">Click!</button>
   </div>
 </div>
-```
 
-If you click the button, the event flows like this:
+If we click the button, the event flows like this:
 
-```
 button → parent → grandparent → document
-```
 
 ---
 
 ### Event Flow Phases:
 
-1. **Capturing Phase**  
-   Event travels DOWN from `document` to the target element.
+1. Capturing Phase* 
+   Event travels DOWN from document to the target element.
 
-2. **Target Phase**  
+2. Target Phase  
    Event reaches the clicked element.
 
-3. **Bubbling Phase**  
-   Event travels UP from the target element back to `document`.
+3. Bubbling Phase 
+   Event travels UP from the target element back to document.
 
 ---
 
@@ -117,31 +107,31 @@ button → parent → grandparent → document
 
 ### Answer:
 
-**Event Delegation** is a technique where instead of adding event listeners to multiple child elements, you add one listener to the parent and detect which child was clicked using `event.target`.
+Event Delegation is a technique where instead of adding event listeners to multiple child elements, you add one listener to the parent and detect which child was clicked using event.target.
 
-It works because of **Event Bubbling**.
+It works because of Event Bubbling.
 
 ---
 
 ### Benefits of Event Delegation:
 
-- ✔ Less code (one listener instead of many)
-- ✔ Better performance (fewer listeners)
-- ✔ Works for dynamically added elements
-- ✔ Easier to maintain
+-  Less code (one listener instead of many)
+-  Better performance (fewer listeners)
+-  Works for dynamically added elements
+-  Easier to maintain
 
 ---
 
-## 5. What is the difference between `preventDefault()` and `stopPropagation()`?
+## 5. What is the difference between preventDefault() and stopPropagation()?
 
 ### Explanation:
 
-- **`preventDefault()`**
+- preventDefault()
   - Stops the browser’s default behavior.
   - Example: Prevent form submission or link navigation.
   - Event bubbling still continues.
 
-- **`stopPropagation()`**
+- stopPropagation()
   - Stops the event from bubbling up to parent elements.
   - Default browser behavior still happens.
 
@@ -149,10 +139,6 @@ It works because of **Event Bubbling**.
 
 ### Key Differences:
 
-| Feature              | `preventDefault()` | `stopPropagation()` |
-|----------------------|-------------------|---------------------|
-| Stops default action | ✅ Yes            | ❌ No               |
-| Stops bubbling       | ❌ No             | ✅ Yes              |
-| Common use           | Forms, links      | Nested click events |
+
 
 
